@@ -54,15 +54,15 @@ spec:
     }
     stage('Build and push image with Container Builder') {
       steps {
+        dir("./adservice") {
         container('gcloud') {
           sh "pwd"
            sh "ls -lrta"
-          sh "cd adservice"
-          sh "ls -lrta"
           sh "PYTHONUNBUFFERED=1 gcloud builds submit -t ${IMAGE_TAG} --project=${PROJECT} ."
         }
       }
     } 
+    }
     stage('Deploy Dev') {
       steps {
         container('kubectl') {
