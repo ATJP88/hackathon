@@ -1,6 +1,6 @@
 FROM golang:1.14-alpine AS builder
 
-ENV PROJECT github.com/lightstep/hipster-shop/src/productcatalogservice
+ENV PROJECT github.com/ATJP88/hackathon/productcatalogservice
 WORKDIR /go/src/$PROJECT
 
 COPY . .
