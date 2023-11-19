@@ -57,6 +57,7 @@ spec:
         container('gcloud') {
           sh "pwd"
            sh "ls -lrta"
+          sh "cd adservice"
           sh "PYTHONUNBUFFERED=1 gcloud builds submit -t ${IMAGE_TAG} --project=${PROJECT} ."
         }
       }
