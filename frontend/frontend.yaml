@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: frontend
+          image: gcr.io/intrepid-league-397203/frontend:latest
           ports:
           - containerPort: 8080
           readinessProbe:
