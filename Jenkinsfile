@@ -56,7 +56,7 @@ spec:
       steps {
         container('kubectl') {
           
-          sh "gcloud container clusters get-credentials hipstar --zone us-central1-c --project srinag"
+          sh "gcloud container clusters get-credentials hipster-dev --region europe-west2 --project intrepid-league-397203"
           sh "kubectl apply -f k8s-service-account.yaml"
           sh "kubectl apply -f lightstep-configmap.yaml"
           sh "kubectl apply -f otel-collector-config.yaml"
