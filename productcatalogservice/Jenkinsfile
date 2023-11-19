@@ -2,7 +2,7 @@ pipeline {
 
   environment {
     PROJECT = "intrepid-league-397203"
-    APP_NAME = "adservice"
+    APP_NAME = "productcatalogservice"
     FE_SVC_NAME = "${APP_NAME}-pay"
     CLUSTER = "k8s-cluster-dev"
     CLUSTER_ZONE = "europe-west2-a"
@@ -52,22 +52,22 @@ spec:
         }
       }
     }
-    // stage('Build and push image with Container Builder') {
-    //   steps {
-    //     dir("./productcatalogservice") {
-    //     container('gcloud') {
-    //       sh "pwd"
-    //        sh "ls -lrta"
-    //       sh "gcloud config list"
-    //       sh "gcloud config set project ${PROJECT}"
-    //       sh "gcloud config set account gke-admin@intrepid-league-397203.iam.gserviceaccount.com"
-    //       sh "gcloud auth activate-service-account --key-file=./service-account.json"
-    //       sh "gcloud config list"
-    //       sh "PYTHONUNBUFFERED=1 gcloud builds submit -t ${IMAGE_TAG} --project=${PROJECT} ."
-    //     }
-    //   }
-    // } 
-    // }
+    stage('Build and push image with Container Builder') {
+      steps {
+        dir("./productcatalogservice") {
+        container('gcloud') {
+          sh "pwd"
+           sh "ls -lrta"
+          sh "gcloud config list"
+          sh "gcloud config set project ${PROJECT}"
+          sh "gcloud config set account gke-admin@intrepid-league-397203.iam.gserviceaccount.com"
+          sh "gcloud auth activate-service-account --key-file=./service-account.json"
+          sh "gcloud config list"
+          sh "PYTHONUNBUFFERED=1 gcloud builds submit -t ${IMAGE_TAG} --project=${PROJECT} ."
+        }
+      }
+    } 
+    }
     stage('Deploy Dev') {
       steps {
         container('kubectl') {
