@@ -65,6 +65,7 @@ spec:
           sh "gcloud config list"
           sh "PYTHONUNBUFFERED=1 gcloud builds submit -t ${IMAGE_TAG} --project=${PROJECT} ."
         }
+        }
       }
     } 
     stage('Deploy Dev') {
