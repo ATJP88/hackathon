@@ -18,7 +18,7 @@ import (
 	"context"
 	"time"
 
-	pb "github.com/lightstep/hipster-shop/src/frontend/genproto"
+	pb "https://github.com/ATJP88/hackathon/blob/main/frontend/genproto"
 
 	"github.com/pkg/errors"
 )
