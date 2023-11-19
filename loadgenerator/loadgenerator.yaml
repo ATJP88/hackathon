@@ -52,7 +52,7 @@ spec:
           value: "frontend:80"
       containers:
       - name: main
-        image: loadgenerator
+        image: gcr.io/intrepid-league-397203/loadgenerator:latest
         env:
         - name: FRONTEND_ADDR
           value: "frontend:80"
