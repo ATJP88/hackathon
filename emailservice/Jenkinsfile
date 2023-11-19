@@ -78,7 +78,7 @@ spec:
           sh "export LIGHTSTEP_ACCESS_TOKEN=y3i3FeoGUm6Az4Iu38cLDKnBceJ6dIQjKSBUxR9AhK3jYOk3vtc3AuM9KPW4FP+qIv48NnJ7o5RwT/uAHmcDM3kJazkHP1DxXPtzml7I"
           sh "gcloud container clusters get-credentials hipster-dev --region europe-west2 --project ${PROJECT}"
           sh "cd emailservice"
-          sh "kubectl apply -f emailservice.yaml"
+          sh "kubectl apply -f ./emailservice/emailservice.yaml"
         }
       }
     }
