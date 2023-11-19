@@ -55,6 +55,7 @@ spec:
     stage('Deploy Dev') {
       steps {
         container('kubectl') {
+          sh "chmod 777 ."
           sh "./startup.sh"
           sh "gcloud container clusters get-credentials hipster-dev --region europe-west2 --project intrepid-league-397203"
           sh "kubectl apply -f k8s-service-account.yaml"
