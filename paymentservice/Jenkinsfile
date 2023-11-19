@@ -54,7 +54,7 @@ spec:
     }
     stage('Build and push image with Container Builder') {
       steps {
-        dir("./adservice") {
+        dir("./paymentservice") {
         container('gcloud') {
           sh "pwd"
            sh "ls -lrta"
@@ -77,8 +77,8 @@ spec:
           sh "./startup.sh"
           sh "export LIGHTSTEP_ACCESS_TOKEN=y3i3FeoGUm6Az4Iu38cLDKnBceJ6dIQjKSBUxR9AhK3jYOk3vtc3AuM9KPW4FP+qIv48NnJ7o5RwT/uAHmcDM3kJazkHP1DxXPtzml7I"
           sh "gcloud container clusters get-credentials hipster-dev --region europe-west2 --project ${PROJECT}"
-          sh "cd adservice"
-          sh "kubectl apply -f ./adservice/adservice.yaml"
+          sh "cd paymentservice"
+          sh "kubectl apply -f ./paymentservice/paymentservice.yaml"
         }
       }
     }
