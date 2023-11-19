@@ -54,17 +54,30 @@ spec:
     }
     stage('Build and push image with Container Builder') {
       steps {
+        dir("./frontend") {
         container('gcloud') {
-          sh "PYTHONUNBUFFERED=1 gcloud builds submit -t ${IMAGE_TAG} ."
+          sh "pwd"
+           sh "ls -lrta"
+          sh "gcloud config list"
+          sh "gcloud config set project ${PROJECT}"
+          sh "gcloud config set account gke-admin@intrepid-league-397203.iam.gserviceaccount.com"
+          sh "gcloud auth activate-service-account --key-file=./service-account.json"
+          sh "gcloud config list"
+          sh "PYTHONUNBUFFERED=1 gcloud builds submit -t ${IMAGE_TAG} --project=${PROJECT} ."
         }
       }
     } 
     stage('Deploy Dev') {
       steps {
         container('kubectl') {
-          
-          sh "gcloud container clusters get-credentials hipstar --zone us-central1-c --project srinag"
-          sh "kubectl apply -f frontend.yaml"
+          sh "pwd"
+          sh "chmod -R 777 ."
+          sh "cd .."
+          sh "./startup.sh"
+          sh "export LIGHTSTEP_ACCESS_TOKEN=y3i3FeoGUm6Az4Iu38cLDKnBceJ6dIQjKSBUxR9AhK3jYOk3vtc3AuM9KPW4FP+qIv48NnJ7o5RwT/uAHmcDM3kJazkHP1DxXPtzml7I"
+          sh "gcloud container clusters get-credentials hipster-dev --region europe-west2 --project ${PROJECT}"
+          sh "cd frontend"
+          sh "kubectl apply -f ./frontend/frontend.yaml"
         }
       }
     }
