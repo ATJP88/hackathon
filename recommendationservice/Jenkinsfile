@@ -2,7 +2,7 @@ pipeline {
 
   environment {
     PROJECT = "intrepid-league-397203"
-    APP_NAME = "adservice"
+    APP_NAME = "recommendationservice"
     FE_SVC_NAME = "${APP_NAME}-pay"
     CLUSTER = "k8s-cluster-dev"
     CLUSTER_ZONE = "europe-west2-a"
