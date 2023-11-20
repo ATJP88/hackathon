@@ -28,8 +28,8 @@ import (
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 
-	pb "github.com/lightstep/hipster-shop/src/frontend/genproto"
-	"github.com/lightstep/hipster-shop/src/frontend/money"
+	pb "https://github.com/ATJP88/hackathon/tree/main/frontend/genproto"
+	"https://github.com/ATJP88/hackathon/tree/main/frontend/money"
 
 	"go.opentelemetry.io/otel"
 	"go.opentelemetry.io/otel/label"
