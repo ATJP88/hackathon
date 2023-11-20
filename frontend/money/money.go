@@ -17,7 +17,7 @@ package money
 import (
 	"errors"
 
-	pb "github.com/lightstep/hipster-shop/src/frontend/genproto"
+	pb "https://github.com/ATJP88/hackathon/tree/main/frontend/genproto"
 )
 
 const (
